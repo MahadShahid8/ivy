@@ -26,6 +26,46 @@ def _compute_cost_and_update_grads(
     batched,
     num_tasks,
 ):
+        """
+    Compute cost and update gradients.
+
+    This function computes the cost and updates gradients for optimization.
+
+    Parameters
+    ----------
+    cost_fn : function
+        The cost function.
+    order : int
+        The order of computation.
+    batch : object
+        The batch data.
+    variables : ivy.Container
+        The variables for optimization.
+    outer_v : object
+        Outer variable.
+    keep_outer_v : bool
+        Whether to keep outer variable.
+    average_across_steps_or_final : bool
+        Whether to average across steps or final.
+    all_grads : list
+        List to accumulate gradients.
+    unique_outer : bool
+        Whether outer variables are unique.
+    batched : bool
+        Whether the data is batched.
+    num_tasks : int
+        Number of tasks.
+
+    Returns
+    -------
+    object
+        The computed cost.
+
+    Examples
+    --------
+    >>> # Example usage here
+    >>> pass
+    """
     if order == 1:
         cost, inner_grads = ivy.execute_with_gradients(
             lambda v: cost_fn(
